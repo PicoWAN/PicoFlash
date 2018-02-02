@@ -1,0 +1,9 @@
+# Copy this file to /etc/udev/rules.d/
+
+ACTION!="add|change", GOTO="picoflash_rules_end"
+SUBSYSTEM!="usb|tty", GOTO="picoflash_rules_end"
+
+# PicoTAG Dock
+ATTRS{idVendor}=="1a86", ATTRS{idProduct}=="7523", MODE="666", GROUP="plugdev", TAG+="uaccess"
+
+LABEL="picoflash_rules_end"
